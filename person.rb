@@ -2,7 +2,7 @@ class Person
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(age, name="Unknown", parent_permission=true)
+  def initialize(age, name = "Unknown", parent_permission = true)
     @id = 1
     @name = name
     @age = age
@@ -14,8 +14,9 @@ class Person
   end
 
   private
-
+  # rubocop:disable Naming/PredicateName
   def is_of_age?
     @age > 18
   end
+  # rubocop:enable Naming/PredicateName 
 end
