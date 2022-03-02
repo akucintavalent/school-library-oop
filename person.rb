@@ -4,12 +4,12 @@ class Person
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(age, name = 'Unknown', parent_permission: true, corrector = Corrector.new)
+  def initialize(age, name = 'Unknown', parent_permission: true)
     @id = 1
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @corrector = corrector
+    @corrector = Corrector.new
   end
 
   def can_use_services?
