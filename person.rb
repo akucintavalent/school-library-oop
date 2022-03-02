@@ -4,7 +4,7 @@ class Person
   attr_accessor :name, :age
   attr_reader :id
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age, name = 'Unknown', parent_permission = true)
     @id = 1
     @name = name
     @age = age
@@ -17,7 +17,7 @@ class Person
   end
 
   def validate_name
-    @name = corrector.correct_name(@name)
+    @name = @corrector.correct_name(@name)
   end
 
   private
