@@ -1,5 +1,6 @@
 require './corrector'
 
+# rubocop:disable Style/ClassVars
 class Person
   attr_accessor :name, :age
   attr_reader :id, :rentals
@@ -46,3 +47,4 @@ class Person
   end
   # rubocop:enable Naming/PredicateName
 end
+# rubocop:enable Style/ClassVars
