@@ -6,6 +6,10 @@ class Teacher < Person
     @specialization = specialization
   end
 
+  def to_s
+    "[Teacher] #{super}"
+  end
+
   def can_use_services?
     true
   end

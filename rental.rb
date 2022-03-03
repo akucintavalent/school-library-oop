@@ -7,6 +7,6 @@ class Rental
     @book = book
     book.add_rental(self)
     @person = person
-    pesron.add_rental(self)
+    person.add_rental(self)
   end
 end
