@@ -9,4 +9,8 @@ class Rental
     @person = person
     person.add_rental(self)
   end
+
+  def to_s
+    "Date: #{@date}, Book \"#{@book.title}\" by #{@book.author}"
+  end
 end

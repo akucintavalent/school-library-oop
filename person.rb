@@ -2,11 +2,14 @@ require './corrector'
 
 class Person
   attr_accessor :name, :age
-  attr_reader :id
+  attr_reader :id, :rentals
+
+  @@id = 1
 
   # rubocop:disable Style/OptionalBooleanParameter
   def initialize(age, name = 'Unknown', parent_permission = true)
-    @id = 1
+    @id = @@id
+    @@id += 1
     @name = name
     @age = age
     @parent_permission = parent_permission

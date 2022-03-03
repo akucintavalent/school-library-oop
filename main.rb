@@ -47,7 +47,12 @@ def main
       case n
       when '1'
         print 'Age: '
-        age = gets.chomp.to_i
+        age = gets.chomp
+        if age != "#{age.to_i}"
+          puts "Cannot convert it to integer\n"
+          next
+        end
+        age = age.to_i
         print 'Name: '
         name = gets.chomp
         print 'Has parent permission? [Y/N]: '
@@ -62,7 +67,12 @@ def main
         end
       when '2'
         print 'Age: '
-        age = gets.chomp.to_i
+        age = gets.chomp
+        if age != "#{age.to_i}"
+          puts "Cannot convert it to integer\n"
+          next
+        end
+        age = age.to_i
         print 'Name: '
         name = gets.chomp
         print 'Specialization: '
@@ -74,31 +84,51 @@ def main
     when '4'
       print 'Title: '
       title = gets.chomp
+      if title == ''
+        puts "You haven't entered the title\n"
+        next
+      end
       print 'Author: '
       author = gets.chomp
+      if author == ''
+        puts "You haven't entered the author\n"
+        next
+      end
       $books << Book.new(title, author)
       puts 'Book successfully created'
     when '5'
       if $books.length == 0
-        puts 'There are no books available'
-        continue
+        puts "There are no books available\n"
+        next
       else
         puts 'Select a book from the following list by number'
         $books.length.times { |i| puts "#{i}) #{$books[i]}" }
-        i = gets.chomp.to_i
+        i = gets.chomp
+        if i != "#{i.to_i}"
+          puts "Cannot convert it to integer\n"
+          next
+        end
+        i = i.to_i
         if i >= $books.length
           puts "There are only 0..#{$books.length - 1} options available but you chose #{i}"
+          next
         end
       end
       if $people.length == 0
-        puts 'There are no people available'
-        continue
+        puts "There are no people available\n"
+        next
       else
         puts 'Select a person from the following list by number (not id)'
         $people.length.times { |i| puts "#{i}) #{$people[i]}" }
-        j = gets.chomp.to_i
+        j = gets.chomp
+        if j != "#{j.to_i}"
+          puts "Cannot convert it to integer\n"
+          next
+        end
+        j = j.to_i
         if j >= $people.length
-          puts "There are only 0..#{$books.length - 1} options available but you chose #{j}"
+          puts "There are only 0..#{$books.length - 1} options available but you chose #{j}\n"
+          next
         end
       end
       book = $books[i]
@@ -107,7 +137,20 @@ def main
       date = gets.chomp
       Rental.new(date, book, person)
     when '6'
-      ''
+      print 'ID of person: '
+      id = gets.chomp
+      if id != "#{id.to_i}"
+        puts "Cannot convert this to integer\n"
+        next
+      end
+      id = id.to_i
+      person = $people.select { |person| person.id == id } [0]
+      if person == nil
+        puts "There is no person with ID #{id}\n"
+        next
+      end
+      puts 'Rentals:'
+      puts person.rentals
     when '7'
       break
     else

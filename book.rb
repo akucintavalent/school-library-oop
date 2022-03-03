@@ -8,7 +8,7 @@ class Book
   end
 
   def to_s
-    "Title: \"#{@title}}\", Author: #{@author}"
+    "Title: \"#{@title}\", Author: #{@author}"
   end
 
   def add_rental(rental)
