@@ -3,8 +3,12 @@ class Book
 
   def initialize(title, author)
     @title = title
-    @autor = author
+    @author = author
     @rentals = []
+  end
+
+  def to_s
+    "Title: \"#{@title}\", Author: #{@author}"
   end
 
   def add_rental(rental)

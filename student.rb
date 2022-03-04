@@ -9,6 +9,10 @@ class Student < Person
     classroom.add_student(self)
   end
 
+  def to_s
+    "[Student] #{super}"
+  end
+
   def play_hooky
     "¯\(ツ)/¯"
   end
